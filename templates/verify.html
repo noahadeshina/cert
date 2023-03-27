@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="post-entry">
+    <h1>The Certificate is Valid</h1>
+    <h2>{{ student.first_name }} {{student.middle_name}} {{ student.last_name }}</h2>
+    <p>Course of Study : {{ student.department }}</p>
+    <p>Year Graduated : {{ student.year }}</p>
+</div>
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="post-entry">
+    <h2>{{ student.first_name }} {{student.middle_name}} {{ student.last_name }}</h2>
+    <p>Course of Study : {{ student.department }}</p>
+    <p>Year Graduated : {{ student.year }}</p>
+
+    <p><a href="{% url 'student_edit' student.pk %}">+ Edit Student Record</a></p>
+    <p><a href="{% url 'student_delete' student.pk %}">+ Delete Student Record</a></p>
+    <p><a href="{% url 'student_delete' student.pk %}">View Certificate</a></p>
+</div>
+{% endblock content %}
