@@ -2,7 +2,7 @@
 {% block content %}
     <div class="container my-5">
         <div class="p-5 text-center bg-body-tertiary rounded-3">
-          <!-- <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57" /> -->
+          <img class="mb-4" src="{{ student.image.url }}" alt="" width="120" height="120" style="border-radius: 60px;"/>
           <h1 class="text-body-emphasis">{{ student.first_name }} {{student.middle_name}} {{ student.last_name }}</h1>
           <br>
           <p class="col-lg-8 mx-auto fs-5 text-muted">Course of Study : {{ student.department }}</p>

@@ -3,6 +3,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Student, StudentForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect, render
+from django.urls import reverse
+from .cert_gen import make_certificates
 
 # your view goes here
 
@@ -33,3 +36,7 @@ class StudentDeleteView(LoginRequiredMixin, DeleteView):
 class StudentVerifyDetailView(DetailView):
     model = Student
     template_name = 'verify.html'
+
+def certificate(request, pk):
+
+    return reverse()

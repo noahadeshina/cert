@@ -10,7 +10,7 @@
 
         <div class="row g-5">
             <div class="col-md-7 col-lg-12">
-                <form class="needs-validation" method="post" novalidate>{% csrf_token %}
+                <form class="needs-validation" method="post" enctype="multipart/form-data" novalidate>{% csrf_token %}
                     <div class="row g-3">
                         <div class="col-sm-4">
                             <label for="firstName" class="form-label">First name</label>
@@ -57,9 +57,9 @@
 
                         <div class="col-md-8">
                             <label for="image" class="form-label">Image</label>
-                            <input type="file" class="form-control" id="image" placeholder="" />
+                            {{ form.image }}
                             <div class="invalid-feedback">
-                                Please provide a valid state.
+                                Please provide student image.
                             </div>
                         </div>
 
