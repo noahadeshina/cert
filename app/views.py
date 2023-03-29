@@ -1,7 +1,7 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Student
+from .models import Student, StudentForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # your view goes here
@@ -15,14 +15,15 @@ class StudentDetailView(LoginRequiredMixin, DetailView):
     template_name = 'student_detail.html'
 
 class StudentCreateView(LoginRequiredMixin, CreateView):
+    form_class = StudentForm
     model = Student
     template_name = 'student_new.html'
-    fields = ['first_name', 'middle_name', 'last_name', 'department', 'year']
+    
 
 class StudentUpdateView(LoginRequiredMixin, UpdateView):
+    form_class = StudentForm
     model = Student
     template_name = 'student_edit.html'
-    fields = ['first_name', 'middle_name', 'last_name', 'department', 'year']
 
 class StudentDeleteView(LoginRequiredMixin, DeleteView):
     model = Student

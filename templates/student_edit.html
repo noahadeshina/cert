@@ -1,8 +1,85 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Edit post</h1>
-    <form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Update">
-    </form>
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <!-- <img class="d-block mx-auto mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57" /> -->
+            <h2>Add Student</h2>
+            <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-md-7 col-lg-12">
+                <form class="needs-validation" method="post" novalidate>{% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-sm-4">
+                            <label for="firstName" class="form-label">First name</label>
+                            {{ form.first_name }}
+                            <div class="invalid-feedback">
+                                Valid first name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label for="middleName" class="form-label">Middle name</label>
+                            {{ form.middle_name }}
+                            <div class="invalid-feedback">
+                                Valid middle name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label for="lastName" class="form-label">Last name</label>
+                            {{ form.last_name }}
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-12">
+                            <label for="username" class="form-label">Username</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text">@</span>
+                                <input type="text" class="form-control" id="username" placeholder="Username" required />
+                                <div class="invalid-feedback">
+                                    Your username is required.
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="col-12">
+                            <label for="department" class="form-label">Department</label>
+                            {{ form.department }}
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <label for="image" class="form-label">Image</label>
+                            <input type="file" class="form-control" id="image" placeholder="" />
+                            <div class="invalid-feedback">
+                                Please provide a valid state.
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="year" class="form-label">Year</label>
+                            {{ form.year }}
+                            <div class="invalid-feedback">
+                                Year required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4" />
+
+                    <button class="btn btn-primary btn-md" type="submit">Update</button>
+                </form>
+                <br>
+            </div>
+        </div>
+    </main>
+</div>
+
 {% endblock content %}

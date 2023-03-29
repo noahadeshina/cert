@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Delete post</h1>
-    <form action="" method="post">{% csrf_token %}
-        <p>Are you sure you want to delete "{{ student.first_name }} {{ student.last_name }}" record?</p>
-        <input type="submit" value="Confirm">
-    </form>
+    <div class="container my-5">
+        <div class="p-5 text-center bg-body-tertiary rounded-3">
+          <h1 class="text-body-emphasis">Delete Record</h1>
+          <p class="col-lg-8 mx-auto fs-5 text-muted">
+            Are you sure you want to delete "{{ student.first_name }} {{ student.last_name }}"
+          </p>
+          <form action="" method="post">{% csrf_token %}
+            <input type="submit" class="d-inline-flex align-items-center btn btn-danger btn-md px-4" value="Confirm">
+          </form>
+        </div>
+      </div>
 {% endblock content %}
