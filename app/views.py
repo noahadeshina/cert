@@ -48,3 +48,10 @@ def certificate(request, pk):
     certificate_obj = Certificate.objects.create(student=obj, certificate=file)
     certificate_obj.save()
     return HttpResponseRedirect(reverse('student_detail', args=[str(obj.id)]))
+
+def view_cert(request, pk):
+    obj = Certificate.objects.get(student=pk)
+    context = {
+        'cert' : obj,
+    }
+    return render(request, 'view_cert.html', context)

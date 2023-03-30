@@ -19,7 +19,7 @@ class Student(models.Model):
         return reverse('certificate', args=[str(self.id)])
 
 class Certificate(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    student = models.OneToOneField(Student, on_delete=models.CASCADE)
     certificate = models.ImageField(upload_to='certificates')
 
     def __str__(self):

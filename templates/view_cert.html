@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container my-5">
+        <div class="p-5 text-center bg-body-tertiary rounded-3">
+          <img class="mb-4" src="{{ cert.certificate.url }}" alt="" width="400" height="250"/>
+          
+          <div class="d-inline-flex gap-2 mb-5">
+            <a href="" class="btn btn-md btn-primary" style="margin-left: 32px;">Print Certificate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock content %}

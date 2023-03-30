@@ -8,5 +8,6 @@ urlpatterns = [
     path('student/<int:pk>/edit/', StudentUpdateView.as_view(), name='student_edit'),
     path('student/<int:pk>/delete/', StudentDeleteView.as_view(), name='student_delete'),
     path('verify/<int:pk>/', StudentVerifyDetailView.as_view(), name='verify'),
-    path('certificate/<int:pk>/', certificate, name='certificate')
+    path('certificate/<int:pk>/', certificate, name='certificate'),
+    path('view_certificate/<int:pk>/', view_cert, name='view_cert'),
 ]
