@@ -16,14 +16,14 @@ class Student(models.Model):
         return f'{self.first_name} {self.last_name}'
     
     def get_absolute_url(self):
-        return reverse('student_detail', args=[str(self.id)])
+        return reverse('certificate', args=[str(self.id)])
 
 class Certificate(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     certificate = models.ImageField(upload_to='certificates')
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name} certificate'
+        return f'{self.student.first_name} {self.student.last_name} certificate'
 
 class StudentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):

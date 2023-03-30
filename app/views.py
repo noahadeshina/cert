@@ -1,7 +1,8 @@
+from django.http import HttpResponseRedirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Student, StudentForm
+from .models import Student, StudentForm, Certificate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -38,5 +39,12 @@ class StudentVerifyDetailView(DetailView):
     template_name = 'verify.html'
 
 def certificate(request, pk):
-
-    return reverse()
+    obj = Student.objects.get(pk=pk)
+    name = f'{obj.first_name} {obj.middle_name} {obj.last_name}'
+    make_certificates(name)
+    parent = 'cert_gen/cert_temp/'
+    fn = name.replace(' ', '_').lower()
+    file = f'{parent}/{fn}.png'
+    certificate_obj = Certificate.objects.create(student=obj, certificate=file)
+    certificate_obj.save()
+    return HttpResponseRedirect(reverse('student_detail', args=[str(obj.id)]))
