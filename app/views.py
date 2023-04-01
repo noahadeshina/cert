@@ -34,14 +34,11 @@ class StudentDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'student_delete.html'
     success_url = reverse_lazy('students')
 
-class StudentVerifyDetailView(DetailView):
-    model = Student
-    template_name = 'verify.html'
-
 def certificate(request, pk):
     obj = Student.objects.get(pk=pk)
     name = f'{obj.first_name} {obj.middle_name} {obj.last_name}'
-    make_certificates(name)
+    url = 'google.com/search?q=' + str(pk)
+    make_certificates(name, url)
     parent = 'cert_gen/cert_temp/'
     fn = name.replace(' ', '_').lower()
     file = f'{parent}/{fn}.png'
@@ -55,3 +52,10 @@ def view_cert(request, pk):
         'cert' : obj,
     }
     return render(request, 'view_cert.html', context)
+
+def verify(request, pk):
+    obj = Certificate.objects.get(student=pk)
+    context = {
+        'cert' : obj,
+    }
+    return render(request, 'verify.html', context)
