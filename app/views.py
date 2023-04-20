@@ -37,7 +37,7 @@ class StudentDeleteView(LoginRequiredMixin, DeleteView):
 def certificate(request, pk):
     obj = Student.objects.get(pk=pk)
     name = f'{obj.first_name} {obj.middle_name} {obj.last_name}'
-    url = 'google.com/search?q=' + str(pk)
+    url = 'certapp.pythonanywhere.com/verify/' + str(pk)
     make_certificates(name, url)
     parent = 'cert_gen/cert_temp/'
     fn = name.replace(' ', '_').lower()
